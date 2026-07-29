@@ -90,15 +90,13 @@ def create_app(root: Path | str | None = None) -> FastAPI:
         ),
     )
 
-    origins = _cors_origins()
-    allow_all = "*" in origins
     app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"] if allow_all else origins,
-        allow_credentials=False,
-        allow_methods=["GET", "POST", "OPTIONS"],
-        allow_headers=["Content-Type"],
-    )
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
     @lru_cache(maxsize=1)
     def data():
