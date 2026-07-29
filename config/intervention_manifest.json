@@ -1,0 +1,272 @@
+{
+  "schema_version": "2.1",
+  "principle": "Interventions change PISA-aligned indicator z-scores first; affected vector composites are then recalculated and mapped back to the fixed Korean baseline percentile distribution.",
+  "interventions": {
+    "laptop_internet_package": {
+      "enabled": true,
+      "label": "Laptop + reliable home internet",
+      "kind": "direct_target",
+      "evidence_level": "High for the direct access change; no automatic claim about achievement, agency, support, or wellbeing",
+      "direct_vector_claim": "Directly improves the ICTHOME component of digital access.",
+      "targets": [
+        {
+          "indicator": "DIGITAL_ACCESS__ICTHOME__Z",
+          "target_percentile": 0.9
+        }
+      ],
+      "method_explanation": "The package closes a quality- and dosage-adjusted share of the student's gap to the 90th percentile of Korea's observed ICTHOME distribution. The full digital-access vector is then recalculated using ICTHOME, ICTQUAL, and ICTENQ.",
+      "assumptions": [
+        "The device is usable for schoolwork and reliable internet is actually available.",
+        "The intervention directly changes access, not learning achievement.",
+        "No spillover into agency or wellbeing is added without separate causal evidence."
+      ],
+      "warnings": [
+        "A laptop without curriculum integration, suitable software, or guidance may not improve learning outcomes."
+      ],
+      "implementation_months": 1,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/3), so 3 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 3
+    },
+    "school_ict_upgrade": {
+      "enabled": true,
+      "label": "School ICT quality upgrade",
+      "kind": "direct_target",
+      "evidence_level": "High for the direct infrastructure change; no automatic learning-outcome claim",
+      "direct_vector_claim": "Directly improves the ICTQUAL component of digital access.",
+      "targets": [
+        {
+          "indicator": "DIGITAL_ACCESS__ICTQUAL__Z",
+          "target_percentile": 0.8
+        }
+      ],
+      "method_explanation": "The upgrade closes a quality- and dosage-adjusted share of the gap to the 80th percentile of Korea's observed ICTQUAL distribution.",
+      "assumptions": [
+        "Hardware, connectivity, maintenance, and student availability are all included in the programme.",
+        "The target is a programme-design benchmark rather than an estimated causal treatment effect."
+      ],
+      "warnings": [
+        "Better infrastructure does not guarantee meaningful use. ICTENQ remains unchanged unless a separate instructional intervention is selected."
+      ],
+      "implementation_months": 6,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/6), so 6 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 6
+    },
+    "school_resource_upgrade": {
+      "enabled": true,
+      "label": "School learning-resource upgrade",
+      "kind": "direct_target",
+      "evidence_level": "High for the direct reduction in reported shortages; outcome effects are not inferred",
+      "direct_vector_claim": "Improves the reverse-scored EDUSHORT component of resources.",
+      "targets": [
+        {
+          "indicator": "RESOURCES__EDUSHORT__Z",
+          "target_percentile": 0.75
+        }
+      ],
+      "method_explanation": "The programme closes a quality- and dosage-adjusted share of the gap to the 75th percentile of Korea's favourable, reverse-scored EDUSHORT distribution.",
+      "assumptions": [
+        "The programme directly addresses the shortages measured by the PISA school index.",
+        "Home resources remain unchanged."
+      ],
+      "warnings": [
+        "Because EDUSHORT is reported at school level, all students in the same school would normally share this direct change."
+      ],
+      "implementation_months": 12,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/9), so 9 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 9
+    },
+    "growth_mindset_workshop": {
+      "enabled": true,
+      "label": "Brief growth-mindset workshop",
+      "kind": "standardized_shift",
+      "evidence_level": "Moderate: large randomized US study on mindset beliefs; transportability to Korea is uncertain",
+      "direct_vector_claim": "Shifts the GROSAGR component of learning agency, not the entire agency vector by a fixed number of percentile points.",
+      "targets": [
+        {
+          "indicator": "LEARNING_AGENCY__GROSAGR__Z",
+          "conservative_effect_sd": 0.2,
+          "central_effect_sd": 0.33,
+          "optimistic_effect_sd": 0.4,
+          "cap_percentile": 0.95
+        }
+      ],
+      "method_explanation": "The central scenario applies the 0.33 SD change in mindset beliefs reported in the National Study of Learning Mindsets. Conservative and optimistic values are transparent sensitivity scenarios, not confidence limits.",
+      "assumptions": [
+        "The workshop is delivered with content and fidelity similar to the evaluated intervention.",
+        "The source effect on mindset beliefs can be approximately expressed on the PISA GROSAGR z-score scale.",
+        "Quality and dosage scale the indicator shift linearly between zero and the selected scenario."
+      ],
+      "warnings": [
+        "The source study was conducted in the United States, not South Korea.",
+        "The intervention affected lower-achieving students' grades more than other students, but this phase does not use achievement to individualize the vector effect."
+      ],
+      "implementation_months": 2,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/4), so 4 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 4
+    },
+    "whole_school_belonging_program": {
+      "enabled": true,
+      "label": "Whole-school belonging programme",
+      "kind": "standardized_shift",
+      "evidence_level": "Moderate-low: meta-analytic evidence supports small average social-emotional improvements, with substantial programme heterogeneity",
+      "direct_vector_claim": "Shifts the BELONG component of wellbeing.",
+      "targets": [
+        {
+          "indicator": "WELLBEING__BELONG__Z",
+          "conservative_effect_sd": 0.1,
+          "central_effect_sd": 0.22,
+          "optimistic_effect_sd": 0.32,
+          "cap_percentile": 0.95
+        }
+      ],
+      "method_explanation": "The central 0.22 SD scenario uses the pooled social-emotional adjustment effect from a meta-analysis of whole-school interventions. The lower and upper values are sensitivity scenarios, not sampling confidence limits.",
+      "assumptions": [
+        "The programme changes school climate, relationships, and practices rather than only giving a one-off motivational talk.",
+        "The general social-emotional effect is used as an approximate shift on PISA school belonging."
+      ],
+      "warnings": [
+        "Belonging interventions vary widely; a generic label cannot guarantee the central effect.",
+        "Life satisfaction and mathematics anxiety are not automatically changed."
+      ],
+      "implementation_months": 12,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/8), so 8 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 8
+    },
+    "structured_tutoring": {
+      "enabled": true,
+      "label": "Structured small-group tutoring",
+      "kind": "proxy_target",
+      "evidence_level": "High for average learning outcomes; low for mapping tutoring onto PISA TEACHSUP as a human-support proxy",
+      "direct_vector_claim": "Uses TEACHSUP only as an explicit proxy for additional instructional adult support.",
+      "targets": [
+        {
+          "indicator": "HUMAN_SUPPORT__TEACHSUP__Z",
+          "target_percentile": 0.7,
+          "proxy": true
+        }
+      ],
+      "outcome_effects": [
+        {
+          "outcome": "learning_achievement",
+          "conservative_effect_sd": 0.102,
+          "central_effect_sd": 0.288,
+          "optimistic_effect_sd": 0.307,
+          "note": "The central value is the pooled tutoring RCT effect. The conservative value corresponds to 1-2 days/week and the optimistic value to during-school tutoring in the published subgroup analysis. This outcome is kept separate from the five vectors."
+        }
+      ],
+      "method_explanation": "The vector layer closes part of the gap to the 70th percentile of TEACHSUP as an instructional-support proxy. Separately, it reports an evidence-based learning-outcome effect size. The two quantities are not treated as the same thing.",
+      "assumptions": [
+        "Tutoring is structured, curriculum-aligned, and delivered one-to-one or in a small group.",
+        "Quality and dosage represent how fully the programme matches the stated design.",
+        "The human-support movement is a transparent proxy because PISA TEACHSUP measures school-teacher support, not private tutoring."
+      ],
+      "warnings": [
+        "Do not present the human-support shift as a causal estimate from tutoring trials.",
+        "The learning effect is an average across diverse programmes and contexts, not an individual treatment effect."
+      ],
+      "implementation_months": 6,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/4), so 4 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 4
+    },
+    "generic_hagwon_access": {
+      "enabled": false,
+      "label": "Generic hagwon access",
+      "kind": "proxy_target",
+      "evidence_level": "Insufficiently specified",
+      "direct_vector_claim": "None until subject, weekly hours, group size, tutor quality, curriculum alignment, cost, and time burden are defined.",
+      "targets": [],
+      "disabled_reason": "Hagwon access is not one intervention. Korean causal studies find at most modest average achievement gains and cannot justify one universal vector movement. Use structured_tutoring or define a precise programme first.",
+      "implementation_months": 6,
+      "evidence_followup_months": 12,
+      "time_note": "Time is modelled with G(t)=1-2^(-t/6), so 6 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 6
+    },
+    "guided_digital_learning": {
+      "enabled": true,
+      "label": "Guided digital-learning integration",
+      "kind": "direct_target",
+      "evidence_level": "High for changing the measured use condition when the programme is actually delivered; no automatic achievement claim",
+      "direct_vector_claim": "Improves the ICTENQ component by providing guided, enquiry-based digital learning opportunities.",
+      "targets": [
+        {
+          "indicator": "DIGITAL_ACCESS__ICTENQ__Z",
+          "target_percentile": 0.7
+        }
+      ],
+      "implementation_months": 6,
+      "evidence_followup_months": 12,
+      "method_explanation": "The programme closes a quality-, dosage-, and time-adjusted share of the gap to the 70th percentile of Korea’s observed ICTENQ distribution. This represents programme delivery, not a causal achievement effect.",
+      "assumptions": [
+        "Teachers receive usable lesson materials and implementation support.",
+        "Students have enough device and connectivity access to participate.",
+        "The programme changes meaningful digital use rather than merely screen time."
+      ],
+      "warnings": [
+        "The target is a transparent programme benchmark, not an experimentally estimated treatment effect."
+      ],
+      "time_note": "Time is modelled with G(t)=1-2^(-t/6), so 6 months is the transparent half-time for implementation/adoption of the modelled endpoint. This is a scenario parameter, not a claim that individual development follows a universal law.",
+      "time_half_life_months": 6
+    }
+  },
+  "policy_packages": {
+    "digital_inclusion_package": {
+      "enabled": true,
+      "label": "Digital inclusion package",
+      "components": [
+        "laptop_internet_package",
+        "school_ict_upgrade",
+        "guided_digital_learning"
+      ],
+      "rationale": "Combines home access, school infrastructure, and meaningful learning use instead of assuming a device alone changes learning.",
+      "assumptions": [
+        "All three components are funded and coordinated.",
+        "Components are applied sequentially to remaining indicator gaps."
+      ],
+      "warnings": [
+        "Component outcome effects are not added into a single causal achievement estimate."
+      ]
+    },
+    "targeted_learning_support_package": {
+      "enabled": true,
+      "label": "Targeted learning-support package",
+      "components": [
+        "school_resource_upgrade",
+        "structured_tutoring",
+        "whole_school_belonging_program"
+      ],
+      "rationale": "Combines school resources, adult instructional support, and belonging rather than treating academic support as a single input.",
+      "assumptions": [
+        "The student can participate consistently.",
+        "School and tutoring components are coordinated."
+      ],
+      "warnings": [
+        "This is a scenario package. Evidence comes from different sources and contexts and is not one evaluated treatment."
+      ]
+    }
+  },
+  "time_horizons": [
+    {
+      "months": 1,
+      "label": "1 month"
+    },
+    {
+      "months": 6,
+      "label": "6 months"
+    },
+    {
+      "months": 12,
+      "label": "1 year"
+    },
+    {
+      "months": 24,
+      "label": "2 years"
+    }
+  ],
+  "time_method": "For intervention a, realised fraction at month t is G_a(t)=1-2^(-t/h_a), where h_a is the intervention-specific implementation/adoption half-time. Overall implemented strength is quality × dosage × G_a(t). The curve is monotonic and asymptotic, so 1, 6, 12, and 24 months are distinct for a responsive profile unless the target is missing, already met, or capped."
+}

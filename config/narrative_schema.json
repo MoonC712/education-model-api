@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "principle": "Only explicit evidence in the narrative is coded. Absence of a statement remains unknown. Automatic coding is a proposal that a human must review before scoring.",
+  "levels": ["unknown", "very_low", "low", "typical", "high", "very_high"],
+  "level_quantiles": {
+    "very_low": 0.10,
+    "low": 0.25,
+    "typical": 0.50,
+    "high": 0.75,
+    "very_high": 0.90
+  },
+  "indicators": {
+    "HOMEPOS": {
+      "dimension": "resources",
+      "label": "Home learning resources",
+      "description": "Books, study space, desk, and materials available at home.",
+      "patterns": {
+        "very_low": ["no books", "no desk", "no place to study", "studies on the floor", "cannot afford school supplies"],
+        "low": ["few books", "shared study space", "crowded home", "borrows school supplies", "no quiet study space"],
+        "high": ["own desk", "quiet study space", "many books", "well equipped study space", "all necessary school supplies"],
+        "very_high": ["private study room", "extensive home library", "fully equipped study room"]
+      }
+    },
+    "EDUSHORT": {
+      "dimension": "resources",
+      "label": "School learning resources",
+      "description": "Availability of school materials and infrastructure; already direction-aligned so higher is more favourable.",
+      "patterns": {
+        "very_low": ["school lacks textbooks", "broken classrooms", "no laboratory", "severe shortage", "not enough teachers or materials"],
+        "low": ["outdated textbooks", "limited laboratory", "shortage of materials", "crowded classrooms", "few learning materials"],
+        "high": ["well resourced school", "modern laboratory", "enough textbooks", "well equipped classrooms"],
+        "very_high": ["exceptional school facilities", "state of the art laboratories", "abundant school resources"]
+      }
+    },
+    "FAMSUP": {
+      "dimension": "human_support",
+      "label": "Family support",
+      "description": "Encouragement, discussion, emotional support, and attention from family.",
+      "patterns": {
+        "very_low": ["family discourages", "parents oppose schooling", "no support at home", "family ignores school"],
+        "low": ["parents are rarely available", "little family support", "family cannot spend time", "parents do not discuss school"],
+        "high": ["parents encourage", "family encourages", "discusses school with", "family checks in", "parents support"],
+        "very_high": ["family consistently supports", "parents regularly discuss school", "strong family encouragement"]
+      }
+    },
+    "TEACHSUP": {
+      "dimension": "human_support",
+      "label": "Teacher or instructional support",
+      "description": "Accessible instructional help and supportive explanation from teachers or tutors.",
+      "patterns": {
+        "very_low": ["teacher refuses to help", "no teacher support", "teachers ignore", "cannot ask teachers"],
+        "low": ["rarely receives help", "teacher has little time", "limited teacher support", "class is too large for help"],
+        "high": ["teacher helps", "teacher explains", "receives regular tutoring", "tutor gives feedback", "can ask for help"],
+        "very_high": ["one to one tutoring", "daily teacher support", "highly personalised instruction"]
+      }
+    },
+    "ICTHOME": {
+      "dimension": "digital_access",
+      "label": "Home digital access",
+      "description": "Reliable device and internet access usable for schoolwork at home.",
+      "patterns": {
+        "very_low": ["no internet", "no computer", "only a basic phone", "cannot access online lessons"],
+        "low": ["shared phone", "mother's phone", "father's phone", "unstable internet", "internet cuts out", "shared computer"],
+        "high": ["own laptop", "reliable internet", "computer at home", "stable broadband"],
+        "very_high": ["multiple devices", "high speed internet", "dedicated laptop and tablet"]
+      }
+    },
+    "ICTQUAL": {
+      "dimension": "digital_access",
+      "label": "School ICT quality",
+      "description": "Quality, availability, and reliability of school digital infrastructure.",
+      "patterns": {
+        "very_low": ["school has no computers", "computer room is unusable", "school internet never works"],
+        "low": ["few school computers", "outdated computers", "limited computer room", "slow school internet"],
+        "high": ["school provides laptops", "reliable school internet", "modern computer room", "good digital facilities"],
+        "very_high": ["one device per student", "advanced digital campus", "excellent school technology"]
+      }
+    },
+    "ICTENQ": {
+      "dimension": "digital_access",
+      "label": "Meaningful digital-learning use",
+      "description": "Use of technology for enquiry, research, creation, and guided learning rather than ownership alone.",
+      "patterns": {
+        "very_low": ["never uses technology for learning", "only uses phone for entertainment"],
+        "low": ["rarely uses online learning", "only downloads worksheets", "little guidance using technology"],
+        "high": ["uses digital research", "online learning platform", "creates digital projects", "technology is integrated into lessons"],
+        "very_high": ["regular inquiry based digital projects", "advanced digital research and creation"]
+      }
+    },
+    "GROSAGR": {
+      "dimension": "learning_agency",
+      "label": "Growth-oriented beliefs",
+      "description": "Belief that ability can develop through effective effort and strategies.",
+      "patterns": {
+        "very_low": ["believes intelligence cannot change", "thinks ability is fixed", "gives up because not talented"],
+        "low": ["often thinks she cannot improve", "often thinks he cannot improve", "sees mistakes as failure"],
+        "high": ["believes she can improve", "believes he can improve", "learns from mistakes", "sees ability as developable"],
+        "very_high": ["actively seeks difficult challenges to grow", "consistently treats failure as feedback"]
+      }
+    },
+    "MATHEFF": {
+      "dimension": "learning_agency",
+      "label": "Learning self-efficacy",
+      "description": "Confidence in handling difficult schoolwork and finding strategies.",
+      "patterns": {
+        "very_low": ["cannot solve anything", "has no confidence", "feels completely incapable"],
+        "low": ["doubts her ability", "doubts his ability", "avoids difficult problems", "needs constant reassurance"],
+        "high": ["confident solving", "believes she can handle", "believes he can handle", "tries different strategies"],
+        "very_high": ["confidently tackles unfamiliar problems", "independently develops strategies"]
+      }
+    },
+    "MATHPERS": {
+      "dimension": "learning_agency",
+      "label": "Persistence and proactive study",
+      "description": "Persistence, planning, and continuing after difficulty.",
+      "patterns": {
+        "very_low": ["stops immediately", "never completes assignments", "always gives up"],
+        "low": ["often gives up", "struggles to persist", "rarely studies independently"],
+        "high": ["keeps trying", "studies independently", "makes a study plan", "persists with difficult work"],
+        "very_high": ["consistently persists", "actively seeks additional practice", "self directed study routine"]
+      }
+    },
+    "BELONG": {
+      "dimension": "wellbeing",
+      "label": "School belonging",
+      "description": "Feeling accepted, included, and connected at school.",
+      "patterns": {
+        "very_low": ["feels completely excluded", "has no friends at school", "is bullied every day"],
+        "low": ["feels isolated", "does not feel she belongs", "does not feel he belongs", "often excluded"],
+        "high": ["feels she belongs", "feels he belongs", "close friends at school", "feels accepted"],
+        "very_high": ["strongly connected to school", "deep sense of belonging", "highly supportive peer community"]
+      }
+    },
+    "LIFESAT": {
+      "dimension": "wellbeing",
+      "label": "Life satisfaction",
+      "description": "Explicit overall satisfaction with life; do not infer from achievement alone.",
+      "patterns": {
+        "very_low": ["extremely unhappy with life", "life feels unbearable"],
+        "low": ["unhappy most days", "dissatisfied with life", "rarely feels happy"],
+        "high": ["generally happy", "satisfied with life", "enjoys daily life"],
+        "very_high": ["very satisfied with life", "thriving and happy"]
+      }
+    },
+    "ANXMAT": {
+      "dimension": "wellbeing",
+      "label": "Lower academic anxiety",
+      "description": "Direction-aligned measure: higher means less anxiety. Explicit anxiety evidence is reverse coded.",
+      "patterns": {
+        "very_low": ["severe test anxiety", "panics during maths", "constant academic anxiety"],
+        "low": ["often anxious about maths", "worries before tests", "stressed by schoolwork"],
+        "high": ["usually calm during tests", "little academic anxiety", "manages test stress"],
+        "very_high": ["very calm under academic pressure", "no meaningful test anxiety"]
+      }
+    }
+  }
+}

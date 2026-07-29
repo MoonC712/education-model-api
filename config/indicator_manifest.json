@@ -1,0 +1,145 @@
+{
+  "dataset": {
+    "name": "OECD PISA 2022",
+    "country_code": "KOR",
+    "join_keys": [
+      "CNT",
+      "CNTSCHID"
+    ],
+    "student_weight": "W_FSTUWT",
+    "replicate_weight_prefix": "W_FSTURWT",
+    "replicate_count": 80,
+    "fay_factor": 0.5,
+    "school_location": "SC001Q01TA",
+    "background_components": [
+      "PAREDINT",
+      "HISEI"
+    ]
+  },
+  "grouping": {
+    "background_low_quantile": 0.25,
+    "background_high_quantile": 0.75,
+    "rural_location_codes": [
+      1,
+      2
+    ],
+    "excluded_location_codes": [
+      3
+    ],
+    "urban_location_codes": [
+      4,
+      5,
+      6
+    ]
+  },
+  "dimensions": {
+    "resources": {
+      "minimum_nonmissing": 2,
+      "indicators": [
+        {
+          "variable": "HOMEPOS",
+          "level": "student",
+          "direction": 1,
+          "role": "home material and cultural possessions"
+        },
+        {
+          "variable": "EDUSHORT",
+          "level": "school",
+          "direction": -1,
+          "role": "shortage of educational materials and infrastructure"
+        }
+      ],
+      "measurement_model": "formative"
+    },
+    "human_support": {
+      "minimum_nonmissing": 2,
+      "indicators": [
+        {
+          "variable": "FAMSUP",
+          "level": "student",
+          "direction": 1,
+          "role": "perceived family support"
+        },
+        {
+          "variable": "TEACHSUP",
+          "level": "student",
+          "direction": 1,
+          "role": "teacher support in mathematics"
+        }
+      ],
+      "measurement_model": "formative"
+    },
+    "digital_access": {
+      "minimum_nonmissing": 2,
+      "indicators": [
+        {
+          "variable": "ICTHOME",
+          "level": "student",
+          "direction": 1,
+          "role": "ICT availability outside school"
+        },
+        {
+          "variable": "ICTQUAL",
+          "level": "student",
+          "direction": 1,
+          "role": "quality of access to ICT at school"
+        },
+        {
+          "variable": "ICTENQ",
+          "level": "student",
+          "direction": 1,
+          "role": "ICT use in enquiry-based learning activities"
+        }
+      ],
+      "measurement_model": "formative"
+    },
+    "learning_agency": {
+      "minimum_nonmissing": 2,
+      "indicators": [
+        {
+          "variable": "GROSAGR",
+          "level": "student",
+          "direction": 1,
+          "role": "growth mindset"
+        },
+        {
+          "variable": "MATHEFF",
+          "level": "student",
+          "direction": 1,
+          "role": "formal and applied mathematics self-efficacy"
+        },
+        {
+          "variable": "MATHPERS",
+          "level": "student",
+          "direction": 1,
+          "role": "proactive and persistent mathematics study behaviour"
+        }
+      ],
+      "measurement_model": "formative"
+    },
+    "wellbeing": {
+      "minimum_nonmissing": 2,
+      "indicators": [
+        {
+          "variable": "BELONG",
+          "level": "student",
+          "direction": 1,
+          "role": "sense of belonging at school"
+        },
+        {
+          "variable": "LIFESAT",
+          "level": "student",
+          "direction": 1,
+          "role": "life satisfaction"
+        },
+        {
+          "variable": "ANXMAT",
+          "level": "student",
+          "direction": -1,
+          "role": "mathematics anxiety, reverse-scored"
+        }
+      ],
+      "measurement_model": "formative"
+    }
+  }
+}

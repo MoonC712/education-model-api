@@ -1,0 +1,6 @@
+source,main_strength,critical_weakness,access,phase_1_role
+OECD PISA 2022,"Best single coverage of resources, support, digital access, agency, wellbeing, school context and survey weights","Cross-sectional; no causal intervention effects; very large download","Public SPSS/SAS files; no individual-record API",Primary baseline
+KCYPS 2018,"Korea-specific longitudinal support, agency and wellbeing","Weaker unified school-resource/digital coverage; portal consent","CSV and statistical formats after agreement",Later longitudinal validation
+KELS 2013,"Education-specific Korean longitudinal design","Research-application access","Restricted/request-based",Later conceptual validation
+KEEP II,"Private education, family expenditure and hagwon-relevant context","Older cohort and incomplete five-vector coverage","Free after portal agreement",Later hagwon validation
+TIMSS 2023 Grade 8,"Public Korea files; resources and mathematics attitudes","Narrower general human support and agency constructs","Public downloadable files; no microdata API",Later robustness check

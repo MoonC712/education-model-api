@@ -1,0 +1,2 @@
+narrative_id,narrative_text,source_type,consent_status,synthetic
+CASE001,"Replace this with one anonymised narrative. Remove names, addresses, phone numbers, school names, and other identifying details.",user_supplied,confirm_before_use,false
