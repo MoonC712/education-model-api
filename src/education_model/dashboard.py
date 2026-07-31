@@ -26,9 +26,10 @@ from education_model.visualization import (
 
 
 st.set_page_config(
-    page_title="Educational Opportunity Simulator",
-    page_icon="◉",
+    page_title="EduBridge",
+    page_icon="🎓",
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 
 
@@ -184,8 +185,8 @@ def axis_title(metadata: dict) -> str:
     )
 
 
-st.title("Educational Opportunity Simulator")
-st.caption("South Korea · OECD PISA 2022 baseline · five opportunity dimensions · transparent policy scenarios")
+st.title("EduBridge")
+st.caption("Mathematical Education Model · South Korea · OECD PISA 2022 baseline")
 
 root = st.sidebar.text_input("Project folder", value=str(Path.cwd()))
 try:

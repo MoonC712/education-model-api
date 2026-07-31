@@ -2,20 +2,11 @@ services:
   - type: web
     name: education-opportunity-api
     runtime: python
-    plan: free
-
     buildCommand: pip install -r requirements.txt && pip install -e .
-
     startCommand: uvicorn education_model.api:app --host 0.0.0.0 --port $PORT
-
     healthCheckPath: /health
-
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.14.3
-
       - key: EDUCATION_MODEL_ROOT
         value: .
-
       - key: EDU_MODEL_CORS_ORIGINS
         value: "*"
